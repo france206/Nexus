@@ -1,33 +1,39 @@
 # Nexus
 # NEXUS: Modern Age (Geopolitical AI Simulator)
 
-NEXUS: Modern Age è un simulatore geopolitico e macroeconomico open-source di nuova generazione per Android, progettato per superare i limiti dei classici giochi di strategia basati su script rigidi. Il progetto introduce un framework ad agenti multi-AI eseguiti interamente in locale sul dispositivo dell'utente, combinando un motore economico a circuito chiuso con un'interfaccia utente iper-fluida.
+NEXUS: Modern Age is a next-generation, open-source geopolitical and macroeconomic simulator for Android. It breaks away from traditional strategy games driven by rigid, linear scripts by introducing a local-first multi-AI agent framework. The ecosystem combines a closed-loop macroeconomic engine with a hyper-fluid UI, allowing players to govern nations through real-time natural language processing.
 
-## 🚀 Visione del Progetto
-Attualmente, i simulatori politici su mobile soffrono di eccessiva semplificazione o di interfacce utente macchinose. NEXUS risolve questo problema introducendo due pilastri fondamentali:
-1. **Comodità Conversazionale:** Gestione totale dello Stato attraverso un dialogo in linguaggio naturale con il proprio Gabinetto dei Ministri potenziato da Intelligenza Artificiale.
-2. **Sovranità dei Dati e Privacy-First:** Tutta l'elaborazione dei modelli linguistici avviene offline sul dispositivo (Edge AI), senza alcuna dipendenza da server cloud di terze parti o tracciamento dei dati sensibili.
+## 🚀 Key Features
+* **Conversational Cabinet:** Manage national policies, taxation, and international relations by chatting directly with your AI-powered Ministers. No bloated sub-menus, just tactical intent.
+* **Privacy-First Edge AI:** All Large Language Model (LLM) inference is executed entirely offline on the user's device. No data leaves the device, eliminating cloud API dependencies and protecting user privacy.
+* **Deep Modding & Open Architecture:** Built under the Apache 2.0 license to allow global communities, students, and indie developers to inject custom geopolitical scenarios, economic models, and regional data.
 
-## 🛠️ Stack Tecnologico
-Il progetto adotta un'architettura modulare progettata per massimizzare le prestazioni hardware riducendo drasticamente l'impatto sulla batteria:
+## 🛠️ Tech Stack
+NEXUS is designed with a modular architecture focused on performance, minimizing battery consumption while running local inference:
 
-*   **Core Simulator Engine:** Scritto in **Rust**, responsabile dei calcoli matematici ad alta frequenza per le variabili macroeconomiche dello Stato.
-*   **Edge AI Client:** Runtime ottimizzato basato su **ONNX / Llama.cpp** per l'esecuzione locale di modelli linguistici quantizzati ed estremamente efficienti (es. Gemma 3 1b).
-*   **Android Application:** Sviluppata nativamente in **Kotlin** utilizzando **Jetpack Compose** per un'interfaccia grafica moderna, reattiva e priva di attriti visivi.
+* **Core Simulation Engine:** Written in **Rust** for lightning-fast execution of high-frequency macroeconomic matrix calculations.
+* **Edge AI Runtime:** Optimized via **ONNX / Llama.cpp** to handle heavily quantized, efficient local models (e.g., Gemma 3 1b) using on-device NPUs and GPUs.
+* **Android Application:** Developed natively in **Kotlin** and **Jetpack Compose** for a minimalist, high-refresh-rate cyberpunk/military UI.
 
-## 📊 Modello Macroeconomico
-Il motore economico non utilizza valori arbitrari, ma simula un circuito macroeconomico chiuso regolato dalle equazioni di stato standard.
+## 📊 Macroeconomic Architecture
+The simulation bypasses arbitrary increments. It relies on a closed-loop economic system where national balances respond to accurate macroeconomic laws.
 
-Il PIL (Y) viene ricalcolato dinamicamente ad ogni turno:
-Y = C + I + G + (X - M)
+Gross Domestic Product ($Y$) is computed dynamically every turn following the standard macro identity:
+$Y = C + I + G + (X - M)$
 
-La sostenibilità del Debito Pubblico (D) risponde alla variazione dei tassi di interesse (r) in base alla stabilità geopolitica ed al consenso interno:
-Delta_D = G - T + r * D_previous
+Where:
+* $C$ (Consumption): Tied to employment rates and household tax pressure.
+* $I$ (Investment): Driven by Central Bank interest rates and country stability.
+* $G$ (Government Spending): Budget allocated by the player (Healthcare, Infrastructure, Defense).
+* $(X - M)$ (Net Exports): Real-time trade balance between simulated sovereign networks.
 
-## 🤖 Sistema ad Agenti Multi-AI Local-First
-Ogni nazione estera e ogni ministero interno è gestito da un agente intelligente autonomo. Attraverso l'ottimizzazione dei pesi del modello locale, l'applicazione simula:
-* **Ministro dell'Economia:** Monitoraggio contabile, gestione della partita doppia dello Stato, previsioni inflazionistiche e suggerimenti di manovre finanziarie.
-* **Geopolitica Dinamica:** Le nazioni rivali reagiscono ai trattati commerciali e alle sanzioni analizzando l'impatto reale sulle proprie catene di approvvigionamento (Semiconduttori, Terre Rare, Energia).
+Public Debt ($D$) sustainability dynamically shifts bond yields ($r$) based on parliamentary consensus and market trust:
+$$\Delta D_t = G_t - T_t + r \cdot D_{t-1}$$
 
-## 📄 Licenza
-Questo progetto è rilasciato sotto licenza **Apache License 2.0**. È possibile utilizzare, modificare e distribuire il software anche per scopi commerciali, a condizione di mantenere intatta la licenza open-source della spina dorsale tecnologica.
+## 🤖 Multi-Agent Local AI Framework
+Every foreign state and internal ministry runs as an independent intelligent agent. By fine-tuning local open weights, the ecosystem simulates:
+* **The Ministry of Finance:** Handles double-entry bookkeeping of the state, flags inflation risks, and outlines optimal fiscal maneuvers based on the player's goals.
+* **Global Supply Chain Disruption:** AI-driven rival states evaluate embargoes, trade deals, and defensive pacts by analyzing real-time resource allocations (Semiconductors, Rare Earth Elements, Crude Oil).
+
+## 📄 License
+This project is licensed under the **Apache License 2.0**. You are free to use, modify, and distribute this software for personal, academic, or commercial purposes, provided the open-source nature of the core architecture remains intact.
